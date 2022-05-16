@@ -1,0 +1,5 @@
+float64[7] joint_angles
+---
+bool success
+string error_msg
+float64[7] joint_angles_error
