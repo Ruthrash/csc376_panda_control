@@ -17,7 +17,7 @@ source ../devel_isolated/setup.bash
 run the controller server 
 
 ```
-rosrun csc376_panda_control panda_ros 
+rosrun csc376_panda_control panda_ros_server 
 ```
 
 In a new terminal run the controller client 
