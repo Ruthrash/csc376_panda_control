@@ -11,8 +11,6 @@ PandaROS::~PandaROS(){}
 //, model_(robot_.loadModel())
 PandaROS::PandaROS(ros::NodeHandle &node, const std::string &robot_ip): robot_(robot_ip){
     service_server = node.advertiseService("joint_angles_controller", &PandaROS::ServiceServerCB, this);
-
-
 }
 
 bool PandaROS::ServiceServerCB(csc376_panda_control::JointAngleCommand::Request  &req,

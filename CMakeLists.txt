@@ -116,22 +116,15 @@ include
   ${catkin_INCLUDE_DIRS}
 )
 
-
-## Declare a C++ library
-
-
-
-
-
 ## Build the Server
-add_executable(panda_ros
-  "src/PandaROS.cpp"
-  "src/ServerMain.cpp"
-  "src/MotionGenerator.cpp"
+add_executable(panda_ros_server
+  "src/backend/PandaROS.cpp"
+  "src/backend/ServerMain.cpp"
+  "src/backend/MotionGenerator.cpp"
 )
+add_dependencies(panda_ros_server csc376_panda_control_generate_messages_cpp)
 
-target_link_libraries(panda_ros PUBLIC
-
+target_link_libraries(panda_ros_server PUBLIC
   ${EXTERNAL_LIBS}
   ${catkin_LIBRARIES}
   Franka::Franka
@@ -140,11 +133,12 @@ target_link_libraries(panda_ros PUBLIC
 ## Build the Client
 add_executable(main
   "src/Main.cpp"
-
+  "src/backend/Client.cpp"
 )
+add_dependencies(main csc376_panda_control_generate_messages_cpp)
+
 
 target_link_libraries(main PUBLIC
-
   ${EXTERNAL_LIBS}
   ${catkin_LIBRARIES}
   Franka::Franka
